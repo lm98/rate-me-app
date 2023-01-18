@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import FeedbackForm from "../lib/components/FeedbackForm.svelte";
+	import FeedbackList from "../lib/components/FeedbackList.svelte";
+    import FeedbackStats from "../lib/components/FeedbackStats.svelte";
+</script>
+
+<main class=container>
+	<FeedbackForm/>
+	<FeedbackStats/>
+	<FeedbackList />
+</main>
