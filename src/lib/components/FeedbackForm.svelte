@@ -1,9 +1,8 @@
 <script>
-    import {v4 as uuidv4} from 'uuid'
     import Card from "./Card.svelte";
     import Button from "./Button.svelte";
     import RatingSelect from "./RatingSelect.svelte";
-    import {FeedbackStore} from '../stores'
+    import {postFeedback} from '../stores'
 
     let text = ''
     let rating = 10
@@ -23,13 +22,10 @@
     function handleSubmit(){
         if(!btnDisabled){
             const newFeedback = {
-                id: uuidv4(),
-                txt: text,
-                rating: +rating
+              rating: rating,
+              txt: text
             }
-            FeedbackStore.update(current => {
-                return [newFeedback, ...current]
-            })
+            postFeedback(newFeedback)
             text = ''
         }
     }
